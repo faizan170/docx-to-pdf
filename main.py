@@ -21,6 +21,10 @@ def convert():
         # replace extension
         pdf_path = file_path.replace(".docx", ".pdf")
 
-        return make_response(request.url_root + pdf_path)
+        return make_response({
+            "url" : request.url_root + pdf_path,
+            "files" : os.listdir(os.getcwd()),
+            "files_all" : os.listdir(FILES_FOLDER)
+        })
     except Exception as e:
         return make_response(str(e), 500)
