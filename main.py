@@ -1,6 +1,6 @@
 from flask import Flask, request, make_response
 from flask_cors import CORS
-import os
+import os, shutil
 app = Flask(__name__)
 CORS(app)
 
@@ -19,6 +19,11 @@ def convert():
         # save file
         file.save(file_path)
         os.system(f"lowriter --headless --convert-to pdf {file_path}")
+
+        pdf_name = filename.replace(".docx", ".pdf")
+
+        if os.path.exists(pdf_name):
+            shutil.move(pdf_name, FILES_FOLDER + "/" + pdf_name)            
 
         # replace extension
         pdf_path = file_path.replace(".docx", ".pdf")
