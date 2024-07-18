@@ -16,6 +16,8 @@ def convert():
         # filename
         filename = file.filename
         file_path = FILES_FOLDER + "/" + filename
+        # save file
+        file.save(file_path)
         os.system(f"lowriter --headless --convert-to pdf {file_path}")
 
         # replace extension
