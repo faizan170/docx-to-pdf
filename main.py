@@ -18,15 +18,8 @@ def convert():
         file_path = FILES_FOLDER + "/" + filename
         # save file
         file.save(file_path)
-        os.system(f"lowriter --headless --convert-to pdf {file_path}")
-
-        pdf_name = filename.replace(".docx", ".pdf")
-
-        if os.path.exists(pdf_name):
-            shutil.move(pdf_name, FILES_FOLDER + "/" + pdf_name)            
-
-        # replace extension
         pdf_path = file_path.replace(".docx", ".pdf")
+        os.system(f"pandoc {file_path} -o {pdf_path}")
 
         return make_response({
             "url" : request.url_root + pdf_path,

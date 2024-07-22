@@ -2,7 +2,7 @@ FROM python:3.9-slim
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update \
     && apt-get upgrade -y \
-    && apt-get install -y gcc default-libmysqlclient-dev pkg-config libreoffice \
+    && apt-get install -y gcc default-libmysqlclient-dev pkg-config pandoc \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
