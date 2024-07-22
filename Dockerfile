@@ -1,12 +1,10 @@
 FROM python:3.9-slim
 ENV DEBIAN_FRONTEND noninteractive
-# Install required packages including LaTeX
 RUN apt-get update \
     && apt-get upgrade -y \
-    && apt-get install -y gcc default-libmysqlclient-dev pkg-config pandoc \
-    # Install texlive and xelatex
-    && apt-get install -y texlive-latex-base texlive-xetex texlive-fonts-recommended \
+    && apt-get install -y gcc default-libmysqlclient-dev pkg-config libreoffice \
     && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 
 COPY requirements.txt .
