@@ -2,7 +2,7 @@ FROM python:3.9-slim
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update \
     && apt-get upgrade -y \
-    && apt-get install -y gcc default-libmysqlclient-dev pkg-config pandoc \
+    && apt-get install -y gcc default-libmysqlclient-dev pkg-config pandoc texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
