@@ -21,7 +21,7 @@ def convert():
         pdf_path = file_path.replace(".docx", ".pdf")
 
         # Execute pandoc command and capture output
-        command = f"pandoc {file_path} -o {pdf_path}"
+        command = f"pandoc {file_path} -o {pdf_path} --pdf-engine=xelatex"
         result = subprocess.run(command, shell=True, capture_output=True, text=True)
 
         # Check for errors
