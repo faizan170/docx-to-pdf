@@ -42,5 +42,3 @@ def convert():
         return make_response({
             "error": str(e)
         }, 500)
-    except Exception as e:
-        return make_response(str(e), 500)
